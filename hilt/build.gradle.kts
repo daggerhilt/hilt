@@ -42,3 +42,17 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+
+afterEvaluate {
+    publishing {
+        publications {
+            create("release", MavenPublication::class) {
+                from(components["release"])
+
+                groupId = "com.github.daggerhilt"
+                artifactId = "hilt"
+                version = "1.0"
+            }
+        }
+    }
+}
